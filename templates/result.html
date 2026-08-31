@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}Legal Information Result{% endblock %}
+
+{% block content %}
+<section class="result-section">
+    <div class="container">
+        <div class="result-header">
+            <h1>Legal Information Report</h1>
+            <p class="user-question"><strong>Your question:</strong> {{ question }}</p>
+        </div>
+
+        <div class="legal-report">
+            {% if result.summary %}
+            <div class="report-section">
+                <h2>Legal Information</h2>
+                <p>{{ result.summary }}</p>
+            </div>
+            {% endif %}
+
+            {% if result.relevant_law %}
+            <div class="report-section">
+                <h2>Relevant Law</h2>
+                {% if result.relevant_law is mapping %}
+                <div class="law-detail">
+                    <p><strong>Law Name:</strong> {{ result.relevant_law.get('law_name', 'Not specified') }}</p>
+                    <p><strong>Section / Article:</strong> {{ result.relevant_law.get('section', 'Not specified') }}</p>
+                    <p><strong>Provision:</strong> {{ result.relevant_law.get('provision', '') }}</p>
+                    <p><strong>Explanation:</strong> {{ result.relevant_law.get('explanation', '') }}</p>
+                </div>
+                {% elif result.relevant_law is iterable and result.relevant_law is not string %}
+                {% for law in result.relevant_law %}
+                <div class="law-detail">
+                    <p><strong>Law Name:</strong> {{ law.get('law_name', 'Not specified') }}</p>
+                    <p><strong>Section / Article:</strong> {{ law.get('section', 'Not specified') }}</p>
+                    <p><strong>Provision:</strong> {{ law.get('provision', '') }}</p>
+                    <p><strong>Explanation:</strong> {{ law.get('explanation', '') }}</p>
+                </div>
+                {% endfor %}
+                {% else %}
+                <p>{{ result.relevant_law }}</p>
+                {% endif %}
+            </div>
+            {% endif %}
+
+            {% if result.legal_position %}
+            <div class="report-section">
+                <h2>Legal Position</h2>
+                <p>{{ result.legal_position }}</p>
+            </div>
+            {% endif %}
+
+            {% if result.case_law %}
+            <div class="report-section">
+                <h2>Relevant Case Law</h2>
+                {% for case in result.case_law %}
+                <div class="case-item">
+                    <h3>{{ case.get('case_name', 'Unnamed Case') }}</h3>
+                    <ul>
+                        <li><strong>Court:</strong> {{ case.get('court', 'Not specified') }}</li>
+                        <li><strong>Year:</strong> {{ case.get('year', 'Not specified') }}</li>
+                        <li><strong>Citation:</strong> {{ case.get('citation', 'Not specified') }}</li>
+                        <li><strong>Relevant Facts:</strong> {{ case.get('facts', '') }}</li>
+                        <li><strong>Decision:</strong> {{ case.get('decision', '') }}</li>
+                        <li><strong>Legal Principle:</strong> {{ case.get('principle', '') }}</li>
+                        <li><strong>Why It May Be Relevant:</strong> {{ case.get('relevance', '') }}</li>
+                    </ul>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if result.possible_steps %}
+            <div class="report-section">
+                <h2>Possible Legal Steps</h2>
+                <p>{{ result.possible_steps }}</p>
+            </div>
+            {% endif %}
+
+            {% if result.sources %}
+            <div class="report-section">
+                <h2>Sources</h2>
+                <ul class="source-list">
+                    {% for source in result.sources %}
+                    <li>
+                        <a href="{{ source.get('url', '#') }}" target="_blank" rel="noopener noreferrer">
+                            <strong>{{ source.get('title', 'Untitled Source') }}</strong>
+                        </a>
+                        {% if source.get('organization') %} - {{ source.organization }}{% endif %}
+                        {% if source.get('reference') %} ({{ source.reference }}){% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            <div class="legal-disclaimer">
+                {{ result.disclaimer or "This system provides general legal information for educational and
+                informational purposes. It does not constitute legal advice, does not create a lawyer-client
+                relationship, and does not guarantee any legal outcome. For advice regarding a specific legal matter,
+                users should consult a qualified lawyer in Pakistan." }}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

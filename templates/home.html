@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Pakistan Legal Information Assistant{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <h1>Pakistan Legal Information Assistant</h1>
+        <p class="tagline">Understand the Law. Know Your Rights.</p>
+        <p class="hero-text">Get clear, authoritative information about Pakistani laws, legal procedures, and relevant
+            court decisions. Powered by official sources and advanced AI search.</p>
+        <div class="hero-cta">
+            <a href="{{ url_for('assistant_view') }}" class="btn btn-primary">Get Legal Information</a>
+        </div>
+    </div>
+</section>
+
+<section class="how-it-works">
+    <div class="container">
+        <h2>How It Works</h2>
+        <div class="steps-grid">
+            <div class="step">
+                <span class="step-number">01</span>
+                <h3>Describe your situation</h3>
+                <p>Explain your legal issue in your own words, in English or Urdu.</p>
+            </div>
+            <div class="step">
+                <span class="step-number">02</span>
+                <h3>Identify relevant legal issues</h3>
+                <p>Our AI analyzes the problem and identifies applicable areas of law.</p>
+            </div>
+            <div class="step">
+                <span class="step-number">03</span>
+                <h3>Search authoritative sources</h3>
+                <p>We retrieve information from official Pakistani legal portals and court websites.</p>
+            </div>
+            <div class="step">
+                <span class="step-number">04</span>
+                <h3>Review relevant laws and judgments</h3>
+                <p>We find the laws, sections, and case law that apply to your situation.</p>
+            </div>
+            <div class="step">
+                <span class="step-number">05</span>
+                <h3>Explain clearly</h3>
+                <p>You receive a structured report with legal information, possible steps, and sources.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="examples">
+    <div class="container">
+        <h2>Example Questions</h2>
+        <div class="example-links">
+            <a href="{{ url_for('assistant', query='Can my landlord evict me without notice?') }}"
+                class="example-item">Can my landlord evict me without notice?</a>
+            <a href="{{ url_for('assistant', query='What are my rights after an FIR is registered against me?') }}"
+                class="example-item">What are my rights after an FIR is registered against me?</a>
+            <a href="{{ url_for('assistant', query='میرے خلاف FIR درج ہوئی ہے، میرے بنیادی قانونی حقوق کیا ہیں؟', lang='ur') }}"
+                class="example-item urdu">میرے خلاف FIR درج ہوئی ہے، میرے بنیادی قانونی حقوق کیا ہیں؟</a>
+            <a href="{{ url_for('assistant', query='طلاق کے بعد بچوں کی custody کے متعلق قانون کیا کہتا ہے؟', lang='ur') }}"
+                class="example-item urdu">طلاق کے بعد بچوں کی custody کے متعلق قانون کیا کہتا ہے؟</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,494 @@
+/* ===== Base Styles ===== */
+:root {
+    --primary: #1a2b4c;
+    --primary-dark: #0f1e36;
+    --accent: #2c5282;
+    --text: #2d3748;
+    --text-light: #4a5568;
+    --background: #f7fafc;
+    --white: #ffffff;
+    --border: #e2e8f0;
+    --error: #c53030;
+    --success: #2f855a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--text);
+    background-color: var(--background);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* For Urdu text */
+.urdu,
+.example-item.urdu,
+.result-section .urdu,
+.result-section [lang="ur"] {
+    font-family: 'Noto Nastaliq Urdu', serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Header ===== */
+.site-header {
+    background-color: var(--primary);
+    color: white;
+    padding: 1rem 0;
+    border-bottom: 3px solid var(--accent);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+.logo:hover {
+    text-decoration: none;
+    color: #cbd5e0;
+}
+
+.main-nav a {
+    color: white;
+    margin-left: 2rem;
+    font-weight: 600;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+}
+
+.main-nav a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* ===== Main Content ===== */
+.site-content {
+    min-height: calc(100vh - 140px);
+    padding: 2rem 0;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+    background-color: var(--primary-dark);
+    color: #a0aec0;
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* ===== Buttons ===== */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent);
+    color: white;
+    text-decoration: none;
+}
+
+/* ===== Flash Messages ===== */
+.flash-messages {
+    margin-bottom: 1.5rem;
+}
+
+.flash-message {
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.flash-error {
+    background-color: #fff5f5;
+    color: var(--error);
+    border: 1px solid #feb2b2;
+}
+
+.flash-success {
+    background-color: #f0fff4;
+    color: var(--success);
+    border: 1px solid #9ae6b4;
+}
+
+/* ===== Hero Section (Home) ===== */
+.hero {
+    background-color: var(--white);
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.tagline {
+    font-size: 1.4rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.hero-text {
+    max-width: 700px;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.hero-cta {
+    margin-top: 2rem;
+}
+
+/* ===== How It Works ===== */
+.how-it-works {
+    padding: 4rem 0;
+    background-color: var(--background);
+}
+
+.how-it-works h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary);
+    font-size: 2rem;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.step {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: box-shadow 0.2s;
+}
+
+.step:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.step-number {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.step h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.step p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* ===== Examples ===== */
+.examples {
+    padding: 4rem 0;
+    background-color: var(--white);
+    border-top: 1px solid var(--border);
+}
+
+.examples h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary);
+}
+
+.example-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.example-item {
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.75rem 1.25rem;
+    color: var(--text);
+    font-size: 0.95rem;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.example-item:hover {
+    background-color: #edf2f7;
+    border-color: #cbd5e0;
+    text-decoration: none;
+}
+
+.example-item.urdu {
+    font-family: 'Noto Nastaliq Urdu', serif;
+}
+
+/* ===== Assistant Form ===== */
+.assistant-form-section {
+    background-color: var(--white);
+    padding: 3rem 0;
+}
+
+.assistant-form-section h1 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.assistant-form {
+    max-width: 700px;
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: white;
+}
+
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(44, 82, 130, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* ===== Result Page ===== */
+.result-section {
+    background-color: var(--white);
+    padding: 2rem 0;
+}
+
+.result-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--primary);
+}
+
+.result-header h1 {
+    color: var(--primary);
+    font-size: 1.8rem;
+}
+
+.user-question {
+    margin-top: 0.5rem;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+.legal-report {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.report-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.report-section h2 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+}
+
+.report-section p,
+.report-section li {
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+
+.law-detail {
+    background: white;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    border-left: 3px solid var(--accent);
+}
+
+.case-item {
+    background: white;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    border-left: 3px solid var(--primary);
+}
+
+.case-item h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.source-list {
+    list-style-type: none;
+}
+
+.source-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.source-list a {
+    color: var(--accent);
+}
+
+.legal-disclaimer {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #fffaf0;
+    border: 1px solid #ecc94b;
+    border-radius: 4px;
+    color: #744210;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* ===== Error Page ===== */
+.error-section {
+    background-color: var(--white);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.error-section h1 {
+    color: var(--error);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .header-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-nav {
+        margin-top: 0.5rem;
+    }
+
+    .main-nav a {
+        margin: 0 0.5rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .tagline {
+        font-size: 1.1rem;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .assistant-form {
+        padding: 1.5rem;
+    }
+
+    .legal-report {
+        padding: 0 0.5rem;
+    }
+}
